@@ -33,7 +33,7 @@ const newPets = pets.filter(({age})=>{return eMenorQueCinco(age)})
 //const newPets = pets.filter(({age})=>{return age<5}) //Filter mais direto
 
 
-const petNames = pets.map((pet)=>{  //map realizado com o nome dos pets(criação de um novo array com os nomes dos pets)
+const petNames = pets.map((pet)=>{  //map made with name of pets(criating of a new array of pets name)
     return pet.name
 })
 
@@ -43,7 +43,7 @@ pets.forEach((pet)=>{
     forEachPetNames.push(pet.name)
 })
 
-const total = pets.reduce((total,pet)=>{ //reduce para realizar um somatória de todas as idades dos pets e seus pesos
+const total = pets.reduce((total,pet)=>{ //reduce for make a sum of age from pet and yours weights 
     return {
         totalAge: total.totalAge + pet.age,
         totalWeight : total.totalWeight + pet.weight
@@ -51,8 +51,13 @@ const total = pets.reduce((total,pet)=>{ //reduce para realizar um somatória de
 }, {totalAge:0, totalWeight: 0})
 
 const totalWeightDog = pets.reduce((totalWeight,pet)=>{
-    if(pet.type !== 'dog') return totalWeight //utiliza uma especie de filter para selecionar os alvos do reduce
+    if(pet.type !== 'dog') return totalWeight //make use a filter for select the targets of reduce
     return totalWeight + pet.weight
+},0)
+
+const dogsWeight = pets.filter((pet)=>{  //a union of filter and reduce 
+}).reduce((total,pet)=>{
+    return total + pet.weight
 },0)
 
 console.log("\nALL\n");
@@ -67,3 +72,5 @@ console.log("\nREDUCE\n");
 console.log(total);
 console.log("\nREDUCE OF DOGS\n");
 console.log(totalWeightDog);
+console.log("\nFILTER WITH REDUCE\n");
+console.log(dogsWeight);
