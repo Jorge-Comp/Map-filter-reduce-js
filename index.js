@@ -2,17 +2,20 @@ const pets =[
     {
         name:'rex',
         type: 'dog',
-        age: 10
+        age: 10,
+        weight:5
     }, 
     {
         name:'miau',
         type: 'cat',
-        age: 2
+        age: 2,
+        weight:3
     }, 
     {
         name:'peixe',
         type: 'fish',
-        age: 1
+        age: 1,
+        weight:1
     }
 ]
 
@@ -34,9 +37,12 @@ pets.forEach((pet)=>{
     forEachPetNames.push(pet.name)
 })
 
-const totalAge = pets.reduce((totalAge,pet)=>{ //reduce para realizar um somatória de todas as idades dos pets
-    return totalAge += pet.age
-}, 0)
+const total = pets.reduce((total,pet)=>{ //reduce para realizar um somatória de todas as idades dos pets e seus pesos
+    return {
+        totalAge: total.totalAge + pet.age,
+        totalWeight : total.totalWeight + pet.weight
+    }
+}, {totalAge:0, totalWeight: 0})
 
 console.log("\nALL\n");
 console.log( pets );
@@ -47,4 +53,4 @@ console.log(petNames);
 console.log("\nMAP WITH FOR\n");
 console.log(forEachPetNames);
 console.log("\nREDUCE\n");
-console.log(totalAge);
+console.log(total);
