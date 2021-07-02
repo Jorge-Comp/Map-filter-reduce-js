@@ -6,6 +6,12 @@ const pets =[
         weight:5
     }, 
     {
+        name:'bolinha',
+        type: 'dog',
+        age: 8,
+        weight:6
+    },
+    {
         name:'miau',
         type: 'cat',
         age: 2,
@@ -44,6 +50,11 @@ const total = pets.reduce((total,pet)=>{ //reduce para realizar um somatória de
     }
 }, {totalAge:0, totalWeight: 0})
 
+const totalWeightDog = pets.reduce((totalWeight,pet)=>{
+    if(pet.type !== 'dog') return totalWeight //utiliza uma especie de filter para selecionar os alvos do reduce
+    return totalWeight + pet.weight
+},0)
+
 console.log("\nALL\n");
 console.log( pets );
 console.log("\nFILTER\n");
@@ -54,3 +65,5 @@ console.log("\nMAP WITH FOR\n");
 console.log(forEachPetNames);
 console.log("\nREDUCE\n");
 console.log(total);
+console.log("\nREDUCE OF DOGS\n");
+console.log(totalWeightDog);
