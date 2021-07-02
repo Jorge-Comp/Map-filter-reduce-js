@@ -30,7 +30,7 @@ const eMenorQueCinco=(age)=>{
     return age<5
 }
 const newPets = pets.filter(({age})=>{return eMenorQueCinco(age)})
-//const newPets = pets.filter(({age})=>{return age<5}) //Filter mais direto
+//const newPets = pets.filter(({age})=>{return age<5}) //direct filter
 
 
 const petNames = pets.map((pet)=>{  //map made with name of pets(criating of a new array of pets name)
